@@ -16,13 +16,13 @@ export const HeartControl = styled.input`display: none;`;
 
 export const CardBody = styled.div`
   align-items: center;
+  background: white;
   display: flex;
   flex-direction: column;
   border: solid 1px #D3D3D3;
   padding: 10px;
   width: 270px;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px #D3D3D3;
 `;
 
 export const Top = styled.div`
@@ -85,7 +85,7 @@ export const Price = styled.p`
     z-index: 1;
     content: '* PRIME';
     position: absolute;
-    left: -8px;
+    left: -17px;
     top: 5px;
     width: 36px;
     height: 26px;
@@ -102,7 +102,7 @@ export const Price = styled.p`
     border-radius: 3px;
     content: '-';
     position: absolute;
-    left: 20px;
+    left: 11px;
     top: 10px;
     width: 20px;
     height: 20px;
@@ -144,6 +144,12 @@ export const BuyButton = styled.button`
   font-size: 18px;
   font-weight: 600;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  :hover {
+    background-color: #32CD32;
+  }
 `;
 
 export const PriceMessage = styled.p`

@@ -2,6 +2,7 @@ import productImage from '../images/camiseta-frente-09.png';
 
 const data = [
   {
+    id: 0,
     store: '02',
     favorite: false,
     image: productImage,

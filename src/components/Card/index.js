@@ -1,25 +1,39 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import GlobalContext from '../../context';
 import { calcInstallments, convertPriceToString } from '../../services/convert';
-
 import {
   WhiteHeart, RedHeart, HeartControl, Top, CardBody,
   Image, Bottom, ProductName, OldPrice, Price, Installments, BuyButton, PriceMessage,
 } from './styled';
-import GlobalContext from '../../context';
 
 function Card({
   product: {
-    store, favorite, image, productName, oldPrice, price, installments,
+    id, store, favorite, image, productName, oldPrice, price, installments,
   },
 }) {
   const [isFavorite, setIsFavorite] = useState(favorite);
 
-  const { setProducts } = useContext(GlobalContext)
+  const { products, setProducts } = useContext(GlobalContext);
+
+  const setProductAsFavorite = (favo) => {
+    const updated = products.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          favorite: favo,
+        };
+      }
+      return product;
+    });
+
+    setProducts(updated);
+  };
 
   const handleChange = () => {
     setIsFavorite(!isFavorite);
+    setProductAsFavorite(!isFavorite);
   };
 
   return (
