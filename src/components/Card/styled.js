@@ -17,12 +17,12 @@ export const HeartControl = styled.input`display: none;`;
 export const CardBody = styled.div`
   align-items: center;
   background: white;
+  border: solid 1px #D3D3D3;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  border: solid 1px #D3D3D3;
   padding: 10px;
   width: 270px;
-  border-radius: 10px;
 `;
 
 export const Top = styled.div`
@@ -32,13 +32,13 @@ export const Top = styled.div`
   width: 100%;
 
   p {
-    color: white;
     background: #DC143C;
-    padding: 3px 10px;
-    text-transform: uppercase;
     border-radius: 5px;
+    color: white;
     font-size: 12px;
     font-weight: 600;
+    padding: 3px 10px;
+    text-transform: uppercase;
   }
 `;
 
@@ -53,67 +53,65 @@ export const Bottom = styled.div`
 `;
 
 export const ProductName = styled.h3`
-  text-align: center;
   border-top: 1px solid #D3D3D3;
-  padding: 20px 0;
   font-size: 15px;
   margin: 0 15px;
+  padding: 20px 0;
+  text-align: center;
 `;
 
 export const OldPrice = styled.p`
-  font-size: 12px;
   color: #808080;
+  font-size: 12px;
 
   span {
-    text-decoration: line-through;
     margin-left: 5px; 
+    text-decoration: line-through;
   }
 `;
 
 export const Price = styled.p`
   color: #DC143C;
+  font-family: 'Lilita One', cursive;
   font-size: 30px;
   position: relative;
-  width: 100%;
   text-align: center;
-  font-family: 'Lilita One', cursive;
+  width: 100%;
 
   :before {
-    font-size: 10px;
-    padding: 2px;
+    align-items: center;
+    background: #DC143C;
     border-radius: 5px;
-    z-index: 1;
+    color: white;
     content: '* PRIME';
-    position: absolute;
+    display: flex;
+    font-size: 10px;
+    height: 26px;
+    justify-content: center;
     left: -17px;
+    line-height: 0.7;
+    padding: 2px;
+    position: absolute;
     top: 5px;
     width: 36px;
-    height: 26px;
-    background: #DC143C;
-    font-size: 10px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 0.7;
+    z-index: 1;
   }
 
   :after {
-    border-radius: 3px;
-    content: '-';
-    position: absolute;
-    left: 11px;
-    top: 10px;
-    width: 20px;
-    height: 20px;
-    background: #DC143C;
-    font-size: 10px;
-    color: white;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    transform: rotate(45deg);
+    background: #DC143C;
+    border-radius: 3px;
     color: #DC143C;
+    content: '-';
+    display: flex;
+    font-size: 10px;
+    height: 20px;
+    justify-content: center;
+    left: 11px;
+    position: absolute;
+    top: 10px;
+    transform: rotate(45deg);
+    width: 20px;
   }
 `;
 
@@ -136,16 +134,16 @@ export const Installments = styled.p`
 `;
 
 export const BuyButton = styled.button`
-  width: 80%;
-  padding: 10px;
   background: #00FF00;
   border: none;
+  border-radius: 8px;
   color: white;
+  cursor: pointer;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
+  padding: 10px;
   transition: 0.2s;
+  width: 80%;
 
   :hover {
     background-color: #32CD32;
