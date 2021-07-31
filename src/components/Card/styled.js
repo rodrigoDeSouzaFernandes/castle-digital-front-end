@@ -21,6 +21,7 @@ export const CardBody = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  margin: 5px;
   padding: 10px;
   width: 270px;
 `;
