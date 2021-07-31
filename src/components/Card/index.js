@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import {
   WhiteHeart, RedHeart, HeartControl, Top, CardBody,
-  Image, Bottom, ProductName, OldPrice, Price, Installments, BuyButton,
+  Image, Bottom, ProductName, OldPrice, Price, Installments, BuyButton, PriceMessage,
 } from './styled';
 
 import camisa from '../../images/camiseta-frente-09.png';
@@ -39,10 +39,10 @@ function Card() {
         <BuyButton type="button">
           comprar
         </BuyButton>
-        <p>
+        <PriceMessage>
           Não sócio
           <span>49,90</span>
-        </p>
+        </PriceMessage>
       </Bottom>
     </CardBody>
   );
