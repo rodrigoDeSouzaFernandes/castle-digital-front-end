@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
+
+import { calcInstallments, convertPriceToString } from '../../services/convert';
 
 import {
   WhiteHeart, RedHeart, HeartControl, Top, CardBody,
   Image, Bottom, ProductName, OldPrice, Price, Installments, BuyButton, PriceMessage,
 } from './styled';
+import GlobalContext from '../../context';
 
-import camisa from '../../images/camiseta-frente-09.png';
+function Card({
+  product: {
+    store, favorite, image, productName, oldPrice, price, installments,
+  },
+}) {
+  const [isFavorite, setIsFavorite] = useState(favorite);
 
-function Card() {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { setProducts } = useContext(GlobalContext)
 
   const handleChange = () => {
     setIsFavorite(!isFavorite);
@@ -17,35 +25,39 @@ function Card() {
   return (
     <CardBody>
       <Top>
-        <p>02 Store</p>
+        <p>{`${store} store`}</p>
         <label htmlFor="heart-control">
           { isFavorite ? <RedHeart /> : <WhiteHeart /> }
           <HeartControl onClick={handleChange} id="heart-control" type="checkbox" />
         </label>
       </Top>
-      <Image src={camisa} alt="imagem de camisa" />
+      <Image src={image} alt={`Imagem de ${productName}`} />
       <Bottom>
-        <ProductName>Camiseta Manga Longa Night Run Hip Hop</ProductName>
+        <ProductName>{productName}</ProductName>
         <OldPrice>
           De
-          <span>R$ 49,90</span>
+          <span>{convertPriceToString(oldPrice)}</span>
         </OldPrice>
-        <Price>R$ 19,90</Price>
+        <Price>{convertPriceToString(price)}</Price>
         <Installments>
-          <span>1x</span>
+          <span>{`${installments}x`}</span>
           de
-          <span>19,90</span>
+          <span>{calcInstallments(price, installments)}</span>
         </Installments>
         <BuyButton type="button">
           comprar
         </BuyButton>
         <PriceMessage>
           Não sócio
-          <span>49,90</span>
+          <span>{convertPriceToString(oldPrice)}</span>
         </PriceMessage>
       </Bottom>
     </CardBody>
   );
 }
+
+Card.propTypes = {
+  product: PropTypes.objectOf(PropTypes.string, PropTypes.number).isRequired,
+};
 
 export default Card;

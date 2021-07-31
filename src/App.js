@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import Card from './components/Card';
+import CardList from './components/CardList';
+import Provider from './context/Provider';
 
 function App() {
   return (
-    <div>
-      <Card />
-    </div>
+    <Provider>
+      <CardList />
+    </Provider>
   );
 }
 
